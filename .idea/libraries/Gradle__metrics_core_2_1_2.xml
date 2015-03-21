@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: metrics-core-2.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yammer.metrics/metrics-core/2.1.2/1777023af1bff167d3860ee9084a5c0dff96ba8d/metrics-core-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yammer.metrics/metrics-core/2.1.2/4fa17dbaedcf53d841bfe2bcb7000ba13adef1c9/metrics-core-2.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

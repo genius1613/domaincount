@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin:'application'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
+
+task createDocs {
+    def docs = file("$buildDir/docs")
+    outputs.dir docs
+    doLast {
+        docs.mkdirs()
+        new File(docs, "readme.txt").write("Read me!")
+    }
+}
+
+applicationDistribution.from(createDocs) {
+    into "docs"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile("org.apache.hbase:hbase:0.94.6") {
+        exclude group: 'log4j', module: 'log4j'
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.mortbay.jetty'
+    }
+    compile("org.apache.hadoop:hadoop-core:1.0.4") {
+        exclude group: 'log4j', module: 'log4j'
+        exclude group: 'org.slf4j' +
+                '', module: 'slf4j-log4j12'
+    }
+
+    compile 'org.apache.hadoop:hadoop-client:1.2.1'
+//    compile 'org.apache.hadoop:hadoop:1.2.1'
+
+    compile("redis.clients:jedis:2.5.1")
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
